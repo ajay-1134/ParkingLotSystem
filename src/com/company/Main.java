@@ -3,7 +3,6 @@ package com.company;
 import java.util.Scanner;
 
 public class Main {
-    // hjbkhlk
     public static void welcomeCenter(ParkingLot parkingLot) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("**************** Hi! Welcome To Our Advanced Parking Lot ****************");
