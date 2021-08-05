@@ -3,9 +3,10 @@ package com.company;
 import java.util.Scanner;
 
 public class Main {
+    // hjbkhlk
     public static void welcomeCenter(ParkingLot parkingLot) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("===== Hi! Welcome To Our BLACK-HEART Parking Lot =====");
+        System.out.println("**************** Hi! Welcome To Our Advanced Parking Lot ****************");
         System.out.println("Please choose your purpose: press 1 for parking, press 2 for getting your vehicle.");
         boolean hasNextInt = scanner.hasNextInt();
         if (!hasNextInt) {
@@ -16,10 +17,12 @@ public class Main {
         if (choice == 1) {
             System.out.println("You've chosen to park your vehicle");
             enterParkingLot(parkingLot);
-        } else if (choice == 2) {
+        }
+        else if (choice == 2) {
             System.out.println("You've chosen to get your vehicle");
             leaveParkingLot(parkingLot);
-        } else {
+        }
+        else {
             welcomeCenter(parkingLot);
         }
     }
@@ -27,25 +30,29 @@ public class Main {
     public static void enterParkingLot(ParkingLot parkingLot) {
         Scanner scanner = new Scanner(System.in);
         Vehicle vehicle;
-        System.out.println("Please choose your car type. press 1 for CAR, press 2 for TRUCK.");
+        System.out.println("Please choose your car type. press 1 for CAR, press 2 for TRUCK, press 3 for BIKE.");
         boolean hasNextInt = scanner.hasNextInt();
         if (!hasNextInt) {
             System.out.println("Not a valid number. Please try again!");
             scanner.next();
         }
         int choice = scanner.nextInt();
-        if (choice != 1 && choice != 2) {
+        if (choice != 1 && choice != 2 && choice != 3) {
             enterParkingLot(parkingLot);
         }
         System.out.println("Please enter you plate:");
         String plate = scanner.next();
         if (choice == 1) {
             vehicle = new Car(plate, "Car");
-        } else {
+        }
+        else if(choice == 2){
             vehicle = new Truck(plate, "Truck");
         }
+        else {
+            vehicle = new Bike(plate,"Bike");
+        }
         if (parkingLot.load(vehicle)) {
-            System.out.println("Success!");
+            System.out.println("Parked Successfully!");
         } else {
             System.out.println("Sorry, our parking lot is full now. Please try again later.");
         }
@@ -80,15 +87,11 @@ public class Main {
 
     public static void main(String[] args) throws InterruptedException {
         ParkingLot parkingLot = new ParkingLot();
-        welcomeCenter(parkingLot);
-        Thread.sleep(3000);
-        welcomeCenter(parkingLot);
-        Thread.sleep(3000);
-        welcomeCenter(parkingLot);
-        Thread.sleep(3000);
-        welcomeCenter(parkingLot);
-        Thread.sleep(3000);
-        welcomeCenter(parkingLot);
+        int flag = 1;
+        while(flag == 1){
+            welcomeCenter(parkingLot);
+            Thread.sleep(3000);
+        }
     }
 }
 
